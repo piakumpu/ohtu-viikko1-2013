@@ -4,4 +4,5 @@ tonnikala
 maitorahka
 lihapiirakoita
 nakkeja
+wc-paperi
 
