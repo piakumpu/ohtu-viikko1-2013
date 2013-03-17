@@ -49,7 +49,7 @@ public class VarastoTest {
     public void otetaanLiikaa() {
        // varasto.lisaaVarastoon(8);
         
-        varasto.otaVarastosta(20);
+        varasto.otaVarastosta(2);
 
         // saldon pitäisi olla sama kun lisätty määrä
         assertEquals(0, varasto.getSaldo(), vertailuTarkkuus);
