@@ -26,6 +26,13 @@ public class VarastoTest {
     }
 
     @Test
+    public void konstruktoriEiNegVaraston() {
+        Varasto varast1 = new Varasto(-10);
+        assertEquals(0, varast1.getSaldo(), vertailuTarkkuus);
+    }
+    
+    
+    @Test
     public void uudellaVarastollaOikeaTilavuus() {
         assertEquals(10, varasto.getTilavuus(), vertailuTarkkuus);
     }
@@ -37,6 +44,41 @@ public class VarastoTest {
         // saldon pitäisi olla sama kun lisätty määrä
         assertEquals(8, varasto.getSaldo(), vertailuTarkkuus);
     }
+    
+    @Test
+    public void otetaanLiikaa() {
+       // varasto.lisaaVarastoon(8);
+        
+        varasto.otaVarastosta(20);
+
+        // saldon pitäisi olla sama kun lisätty määrä
+        assertEquals(0, varasto.getSaldo(), vertailuTarkkuus);
+    }
+    
+    @Test
+    public void laitetaanLiikaa() {
+           varasto.lisaaVarastoon(varasto.getTilavuus()+10);  
+
+        // saldon pitäisi olla sama kun lisätty määrä
+        assertEquals(10, varasto.getTilavuus(), vertailuTarkkuus);
+    }
+    
+    @Test
+    public void laitetaanNeg() {
+           varasto.lisaaVarastoon(-10);  
+
+        // saldon pitäisi olla sama kun lisätty määrä
+        assertEquals(0, varasto.getSaldo(), vertailuTarkkuus);
+    }
+    
+    
+    @Test
+    public void otetaanNeg() {
+           varasto.otaVarastosta(-10);
+
+        // saldon pitäisi olla sama kun lisätty määrä
+        assertEquals(0, varasto.getSaldo(), vertailuTarkkuus);
+    }
 
     @Test
     public void lisaysLisaaPienentaaVapaataTilaa() {
@@ -45,7 +87,6 @@ public class VarastoTest {
         // vapaata tilaa pitäisi vielä olla tilavuus-lisättävä määrä eli 2
         assertEquals(2, varasto.paljonkoMahtuu(), vertailuTarkkuus);
     }
-    
 
     @Test
     public void ottaminenPalauttaaOikeanMaaran() {
@@ -55,16 +96,6 @@ public class VarastoTest {
 
         assertEquals(2, saatuMaara, vertailuTarkkuus);
     }
-        @Test
-    public void otetaanLiika() {
-            
-        varasto.lisaaVarastoon(6);
-         
-        double saatuMaara = varasto.otaVarastosta(20);
-        
-        assertEquals(-4, saatuMaara, vertailuTarkkuus);
-    }
-
 
     @Test
     public void ottaminenLisääTilaa() {
